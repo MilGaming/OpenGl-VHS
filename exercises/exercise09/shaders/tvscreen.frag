@@ -11,9 +11,6 @@ float Noise21(vec2 p, float ta, float tb) {
 }
 
 void main() {
-    // If you want pixel‐space coords:
-    vec2 pix = FragUV * Resolution; 
-    // Or just use normalized UV:
     vec2 uv = FragUV;
 
     float t  = Time + 123.0;

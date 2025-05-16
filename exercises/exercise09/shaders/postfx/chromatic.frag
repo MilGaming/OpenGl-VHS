@@ -1,18 +1,18 @@
-﻿in vec2 TexCoord;
+in vec2 TexCoord;
 out vec4 FragColor;
 
 uniform sampler2D SourceTexture;
 uniform float AbAmount;
 
-//Code for the chromatic aberration effect, so its like looking through a old camera
+//Code for the chromatic aberration effect, giving it a retro look
 void main() {
-    // center-origin coords in range [–1..1]
+    // center-origin coords in range [–1.1]
     vec2 centered = TexCoord * 2.0 - 1.0;
 
-    // compute radial offset based on distance from center
+    // compute offset based on distance from center
     float dist = length(centered);
-    vec2 dir = centered / dist;   // normalized direction
-    float offset = dist * AbAmount;   // grows toward edges
+    vec2 dir = centered / dist;
+    float offset = dist * AbAmount;
 
     // sample each channel slightly shifted
     vec2 uvR = TexCoord + dir * offset;

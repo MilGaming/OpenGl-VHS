@@ -8,13 +8,10 @@ uniform float VignetteSmoothness;
 // Code for the vignette effect, to darken the corners of the screen
 void main()
 {
-    // sample your scene
     vec4 color = texture(SourceTexture, TexCoord);
 
-    // remap TexCoord [0,1]→[-1,1] so center is (0,0)
+    // We again center
     vec2 pos = TexCoord * 2.0 - 1.0;
-
-    // compute distance from center (0=center, √2=corner)
     float d = length(pos);
 
     // create a smooth mask: start darkening around d0, fully dark by d1

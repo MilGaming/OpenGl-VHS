@@ -11,12 +11,12 @@ float noise(vec2 p) {
 
 void main()
 {
-    float NoiseIntensity = 0.05f; // Use a small value for subtle effect
+    float NoiseIntensity = 0.05f;
 
     vec3 sceneColor = texture(SourceTexture, TexCoord).rgb;
     float n = noise(TexCoord);
 
-    // Blend noise with the scene (additive, or try other blend modes)
+    // Blend noise with the scene
     vec3 finalColor = sceneColor + n * NoiseIntensity;
 
     FragColor = vec4(finalColor, 1.0f);
